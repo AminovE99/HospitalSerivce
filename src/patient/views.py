@@ -6,6 +6,6 @@ from patient.serializer import PatientSerializer
 
 
 class PatientViewSet(viewsets.GenericViewSet, mixins.RetrieveModelMixin):
-    permission_classes = [IsAuthenticated, ]
+    permission_classes = [IsAuthenticated]
     queryset = Patient.objects.all()
     serializer_class = PatientSerializer

@@ -1,4 +1,5 @@
 from django.db import models
+from rest_framework.authtoken.models import Token
 
 
 class Patient(models.Model):
@@ -13,3 +14,7 @@ class Diagnosis(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class CustomToken(Token):
+    is_doctor = models.BooleanField(default=False)

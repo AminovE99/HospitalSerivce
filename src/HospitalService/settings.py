@@ -1,6 +1,7 @@
 import datetime
 import os
 
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.getenv('SECRET_KEY', ')%-m1bv4mam=uu(23ex5hx25u868t(cw!e9%e=&b0y*2ck#zae')
 URL_PREFIX = 'api'
@@ -102,5 +103,11 @@ SWAGGER_SETTINGS = {
 JWT_AUTH = {
     'JWT_EXPIRATION_DELTA': datetime.timedelta(days=2),
     'JWT_ALLOW_REFRESH': True,
-    'JWT_REFRESH_EXPIRATION_DELTA': datetime.timedelta(days=7)
+    'JWT_REFRESH_EXPIRATION_DELTA': datetime.timedelta(days=7),
+    'JWT_ALGORITHM': 'HS256',
+    'TOKEN_MODEL': 'patient.CustomToken'
+}
+
+DJOSER = {
+    'token_create': 'patient.TokenSerializer',
 }
